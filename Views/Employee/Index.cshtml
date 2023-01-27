@@ -1,0 +1,40 @@
+﻿@model List<MVCEmployeeDemo.Models.Employee>
+
+@{
+}
+
+<h1>Employees</h1>
+
+<table class="table container-sm">
+    <thead>
+        <tr>
+            <th style="width:2%">S.N.</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>Date of Birth</th>
+            <th>Department</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 0;
+        }
+        @foreach (var employee in Model)
+        {
+            { i++; }
+            <tr>
+                <td>@i</td>
+                <td>@employee.Id</td>
+                <td>@employee.Name</td>
+                <td>@employee.Email</td>
+                <td>@employee.Salary</td>
+                <td>@employee.DateOfBirth.ToString("dd-mm-yyyy")</td>
+                <td>@employee.Department</td>
+                <td><a href="Employee/View/@employee.Id">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
